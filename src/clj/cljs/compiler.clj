@@ -157,7 +157,7 @@
 (defmethod emit-constant Character [x] (pr (str x)))
 
 (defmethod emit-constant java.util.regex.Pattern [x]
-  (let [[_ flags pattern] (re-find #"^(?:\(\?([idmsux]*)\))?(.*)" (str x))]
+  (let [[_ flags pattern] (re-find #"^(?:\(\?([gim]*)\))?(.*)" (str x))]
     (print (str \/ (.replaceAll (re-matcher #"/" pattern) "\\\\/") \/ flags))))
 
 (defmethod emit-constant clojure.lang.Keyword [x]
